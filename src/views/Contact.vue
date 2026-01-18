@@ -1,7 +1,7 @@
 <template>
     <div class="text-primary">
         <h1>Contact to Lalita Kamyuta</h1>
-        <h3>Tel.0988292107</h3>
+        <h3>Tel.098-829-2107</h3>
         <img alt="Vue logo" width="40%" src="../assets/cat.jpg">
 
         <br><br><br>
@@ -23,7 +23,7 @@
   <label for="exampleFormControlTextarea1" class="form-label">Detail</label>
   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
 </div>
- <div class="mb-3 textcenter">
+ <div class="mb-3 text-center">
   <button type="button" class="btn btn-primary">Submit</button>&nbsp;
   <button type="button" class="btn btn-danger">Cancel</button>
   
