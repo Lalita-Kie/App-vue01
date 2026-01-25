@@ -34,6 +34,15 @@
         <li class="nav-item">
           <a class="nav-link" href="/employees">Employees</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/product">Product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/product_api">Product_API</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/show_product">Show_Product</a>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
