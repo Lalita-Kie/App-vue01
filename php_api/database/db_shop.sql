@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2026 at 12:35 PM
+-- Generation Time: Feb 01, 2026 at 12:45 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -44,7 +44,8 @@ INSERT INTO `customers` (`customer_id`, `firstName`, `lastName`, `phone`, `usern
 (00000001, 'สมชาย', 'ใจดี', '0812345678', 'somchai', 'pass1234'),
 (00000002, 'วิภา', 'สุขสันต์', '0898765432', 'wipa', 'wipa2025'),
 (00000003, 'John', 'Doe', '0991122334', 'johnd', 'securepwd'),
-(00000004, 'ลลิตา', 'คำยุธา', '0988292107', 'Lalita', '$2y$10$fcVlBreoiqgH4');
+(00000004, 'ลลิตา', 'คำยุธา', '0988292107', 'Lalita', '$2y$10$fcVlBreoiqgH4'),
+(00000005, 'lalita', 'kam', '0624586769', 'Lalita', '$2y$10$z1GGSS5sRrslv');
 
 -- --------------------------------------------------------
 
@@ -71,7 +72,8 @@ INSERT INTO `employees` (`emp_id`, `full_name`, `department`, `salary`, `active`
 (0000000003, 'อนันต์ สุขใจ', 'การตลาด', '25000.00', 0, '2026-01-18 10:29:29'),
 (0000000004, 'สุดา พรมดี', 'ทรัพยากรบุคคล', '32000.00', 1, '2026-01-18 10:29:29'),
 (0000000005, 'ลิตา', 'TRD', '15000.00', 1, '2026-01-25 10:09:30'),
-(0000000006, 'จริงใจ ใจดี', 'FC', '20000.00', 1, '2026-01-25 10:45:12');
+(0000000007, 'lhjkg', 'it', '20000.00', 1, '2026-02-01 10:18:50'),
+(0000000008, 'Lalita', 'it', '20000.00', 1, '2026-02-01 10:19:58');
 
 -- --------------------------------------------------------
 
@@ -94,9 +96,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `product_name`, `description`, `price`, `image`, `stock`, `created_at`) VALUES
-(00000000001, 'เสื้อยืดคอกลม', 'เสื้อยืดผ้าฝ้าย 100% สวมใส่สบาย', '199.00', 'tshirt.jpg', 50, '2026-01-25 11:04:52'),
-(00000000002, 'กางเกงยีนส์', 'กางเกงยีนส์ทรงกระบอก สีฟ้าอ่อน', '799.00', 'jeans.jpg', 30, '2026-01-25 11:04:52'),
-(00000000003, 'รองเท้าผ้าใบ', 'รองเท้าผ้าใบสีขาว ใส่ได้ทุกโอกาส', '1299.00', 'sneakers.jpg', 20, '2026-01-25 11:04:52');
+(00000000001, 'เสื้อยืดคอกลม', 'เสื้อยืดผ้าฝ้าย 100% สวมใส่สบาย', '199.00', 'Cat.webp', 50, '2026-01-25 11:04:52'),
+(00000000002, 'กางเกงยีนส์', 'กางเกงยีนส์ทรงกระบอก สีฟ้าอ่อน', '799.00', 'dog.jpg', 30, '2026-01-25 11:04:52'),
+(00000000003, 'รองเท้าผ้าใบ', 'รองเท้าผ้าใบสีขาว ใส่ได้ทุกโอกาส', '1299.00', 'rap.webp', 20, '2026-01-25 11:04:52');
 
 -- --------------------------------------------------------
 
@@ -153,13 +155,13 @@ ALTER TABLE `type`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customer_id` int(8) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `customer_id` int(8) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `emp_id` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `emp_id` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -171,7 +173,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `type`
 --
 ALTER TABLE `type`
-  MODIFY `type_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสสินค้า', AUTO_INCREMENT=3;
+  MODIFY `type_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสสินค้า', AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
