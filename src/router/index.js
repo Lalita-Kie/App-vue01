@@ -75,6 +75,16 @@ const routes = [
     path: '/student_crud',
     name: 'student_crud',
     component: () => import('../views/Student_crud.vue')
+  },
+  {
+    path: '/product_crud',
+    name: 'product_crud',
+    component: () => import('../views/product_crud.vue')
+  },
+  {
+    path: '/employee_crud_image',
+    name: 'employee_crud_image',
+    component: () => import('../views/Employee_crud_image.vue')
   }
 ]
 

@@ -35,19 +35,25 @@
           <a class="nav-link" href="/employees">Employees</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="/employee_crud">Employee Crud</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/employee_crud_image">Employee Crud Image</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="/product">Product</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/product_api">Product_API</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="/product_crud">Product_Crud</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="/show_product">Show_Product</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/customer_crud">Customer Crud</a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" href="/employee_crud">Employee Crud</a>
         </li>
           <li class="nav-item">
           <a class="nav-link" href="/student_crud">Student Crud</a>
