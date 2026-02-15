@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 01, 2026 at 12:45 PM
+-- Generation Time: Feb 15, 2026 at 12:54 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -59,6 +59,7 @@ CREATE TABLE `employees` (
   `department` varchar(50) NOT NULL,
   `salary` decimal(10,2) NOT NULL,
   `active` tinyint(1) DEFAULT 1,
+  `image` varchar(50) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -66,14 +67,14 @@ CREATE TABLE `employees` (
 -- Dumping data for table `employees`
 --
 
-INSERT INTO `employees` (`emp_id`, `full_name`, `department`, `salary`, `active`, `created_at`) VALUES
-(0000000001, 'สมชาย ใจดี', 'IT', '35000.00', 1, '2026-01-18 10:29:29'),
-(0000000002, 'สมหญิง ดีงาม', 'บัญชี', '28000.00', 1, '2026-01-18 10:29:29'),
-(0000000003, 'อนันต์ สุขใจ', 'การตลาด', '25000.00', 0, '2026-01-18 10:29:29'),
-(0000000004, 'สุดา พรมดี', 'ทรัพยากรบุคคล', '32000.00', 1, '2026-01-18 10:29:29'),
-(0000000005, 'ลิตา', 'TRD', '15000.00', 1, '2026-01-25 10:09:30'),
-(0000000007, 'lhjkg', 'it', '20000.00', 1, '2026-02-01 10:18:50'),
-(0000000008, 'Lalita', 'it', '20000.00', 1, '2026-02-01 10:19:58');
+INSERT INTO `employees` (`emp_id`, `full_name`, `department`, `salary`, `active`, `image`, `created_at`) VALUES
+(0000000001, 'สมชาย ใจดี', 'IT', '35000.00', 1, '', '2026-01-18 10:29:29'),
+(0000000002, 'สมหญิง ดีงาม', 'บัญชี', '28000.00', 1, '1771154446_1771153952_1771153733_รองเท้า.jpg', '2026-01-18 10:29:29'),
+(0000000003, 'อนันต์ สุขใจ', 'การตลาด', '25000.00', 0, '1771154147_1771153715_1771145584_images.webp', '2026-01-18 10:29:29'),
+(0000000004, 'สุดา พรมดี', 'ทรัพยากรบุคคล', '32000.00', 1, '1771153733_รองเท้า.jpg', '2026-01-18 10:29:29'),
+(0000000005, 'ลิตา', 'TRD', '15000.00', 1, '1771153723_กางเกงยีนส์.webp', '2026-01-25 10:09:30'),
+(0000000008, 'Lalita', 'it', '20000.00', 1, '1771153683_เสื้อยืด.jpg', '2026-02-01 10:19:58'),
+(0000000009, 'gbdszf', 'da', '10000.00', 1, '1771156005_เสื้อยืด.jpg', '2026-02-15 11:46:45');
 
 -- --------------------------------------------------------
 
@@ -96,9 +97,10 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `product_name`, `description`, `price`, `image`, `stock`, `created_at`) VALUES
-(00000000001, 'เสื้อยืดคอกลม', 'เสื้อยืดผ้าฝ้าย 100% สวมใส่สบาย', '199.00', 'Cat.webp', 50, '2026-01-25 11:04:52'),
-(00000000002, 'กางเกงยีนส์', 'กางเกงยีนส์ทรงกระบอก สีฟ้าอ่อน', '799.00', 'dog.jpg', 30, '2026-01-25 11:04:52'),
-(00000000003, 'รองเท้าผ้าใบ', 'รองเท้าผ้าใบสีขาว ใส่ได้ทุกโอกาส', '1299.00', 'rap.webp', 20, '2026-01-25 11:04:52');
+(00000000001, 'เสื้อยืดคอกลม', 'เสื้อยืดผ้าฝ้าย 100% สวมใส่สบาย', '199.00', '1771153969_เสื้อยืด.jpg', 50, '2026-01-25 11:04:52'),
+(00000000002, 'กางเกงยีนส์', 'กางเกงยีนส์ทรงกระบอก สีฟ้าอ่อน', '799.00', '1771153960_1771153723_กางเกงยีนส์.webp', 30, '2026-01-25 11:04:52'),
+(00000000003, 'รองเท้าผ้าใบ', 'รองเท้าผ้าใบสีขาว ใส่ได้ทุกโอกาส', '1299.00', '1771153952_1771153733_รองเท้า.jpg', 20, '2026-01-25 11:04:52'),
+(00000000004, 'แมว', 'แมวสีส้ม', '2000.00', '1771145584_images.webp', 1, '2026-02-15 08:53:04');
 
 -- --------------------------------------------------------
 
@@ -161,13 +163,13 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `emp_id` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `emp_id` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `product_id` int(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `type`
