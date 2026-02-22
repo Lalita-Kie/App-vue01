@@ -27,7 +27,8 @@ const routes = [
   {
     path: '/employees',
     name: 'employees',
-    component: () => import('../views/Employees.vue')
+    component: () => import('../views/Employees.vue'),
+    meta: { requiresAuth: true }
   },
 
   {
@@ -39,7 +40,8 @@ const routes = [
   {
     path: '/add_employee',
     name: 'add_employee',
-    component: () => import('../views/Add_employee.vue')
+    component: () => import('../views/Add_employee.vue'),
+    meta: { requiresAuth: true }
   },
 
   {
@@ -63,15 +65,17 @@ const routes = [
    {
     path: '/customer_crud',
     name: 'customer_crud',
-    component: () => import('../views/Customer_crud.vue')
+    component: () => import('../views/Customer_crud.vue'),
+    meta: { requiresAuth: true }
   },
 
     {
     path: '/employee_crud',
     name: 'employee_crud',
-    component: () => import('../views/Employee_crud.vue')
+    component: () => import('../views/Employee_crud.vue'),
+    meta: { requiresAuth: true }
   },
-      {
+    {
     path: '/student_crud',
     name: 'student_crud',
     component: () => import('../views/Student_crud.vue')
@@ -80,17 +84,57 @@ const routes = [
     path: '/product_crud',
     name: 'product_crud',
     component: () => import('../views/product_crud.vue')
+
   },
   {
     path: '/employee_crud_image',
     name: 'employee_crud_image',
-    component: () => import('../views/Employee_crud_image.vue')
+    component: () => import('../views/Employee_crud_image.vue'),
+    meta: { requiresAuth: true }
+  },
+   {
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/Login.vue')
+  },
+  
+  /* ✅ Product Detail (รองรับ 2 แบบ) */
+
+  // แบบ params (แนะนำ)
+  {
+    path: '/ProductDetail/:id',
+    name: 'ProductDetail',
+    component: () => import('../views/ProductDetail.vue')
+  },
+
+  // แบบ query string (สำรอง)
+  {
+    path: '/ProductDetail',
+    component: () => import('../views/ProductDetail.vue')
   }
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(),
   routes
+})
+
+/* ✅ ROUTE GUARD */
+router.beforeEach((to, from, next) => {
+
+  const isLoggedIn = localStorage.getItem("adminLogin")
+
+  // ถ้าหน้านั้นต้อง login แต่ยังไม่ login
+  if (to.meta.requiresAuth && !isLoggedIn) {
+    next('/login')
+  } 
+  // ถ้า login แล้วแต่พยายามเข้าหน้า login
+  else if (to.path === '/login' && isLoggedIn) {
+    next('/')   // หรือ dashboard
+  }
+  else {
+    next()
+  }
 })
 
 export default router

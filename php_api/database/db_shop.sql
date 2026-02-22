@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2026 at 12:54 PM
+-- Generation Time: Feb 22, 2026 at 01:11 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -24,6 +24,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `category_id` int(11) NOT NULL,
+  `category_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`category_id`, `category_name`) VALUES
+(1, 'เครื่องใช้ไฟฟ้า'),
+(2, 'เสื้อผ้า'),
+(3, 'รองเท้า');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `customers`
 --
 
@@ -33,7 +53,7 @@ CREATE TABLE `customers` (
   `lastName` varchar(50) NOT NULL,
   `phone` varchar(15) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL
+  `password` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -44,8 +64,8 @@ INSERT INTO `customers` (`customer_id`, `firstName`, `lastName`, `phone`, `usern
 (00000001, 'สมชาย', 'ใจดี', '0812345678', 'somchai', 'pass1234'),
 (00000002, 'วิภา', 'สุขสันต์', '0898765432', 'wipa', 'wipa2025'),
 (00000003, 'John', 'Doe', '0991122334', 'johnd', 'securepwd'),
-(00000004, 'ลลิตา', 'คำยุธา', '0988292107', 'Lalita', '$2y$10$fcVlBreoiqgH4'),
-(00000005, 'lalita', 'kam', '0624586769', 'Lalita', '$2y$10$z1GGSS5sRrslv');
+(00000008, 'อรปรียา', 'ใจดี', '0654587669', 'admin', '$2y$10$HEVp9MKQeSWWo'),
+(00000017, 'ลลิตา', 'ยำยุธา', '0988292107', 'lalita', '$2y$10$q5tO5EXy8e9ZsjrKpK/tVOsl1GDWQRtdn/aT9D4rwmtpWT2uT6Hj2');
 
 -- --------------------------------------------------------
 
@@ -89,6 +109,7 @@ CREATE TABLE `products` (
   `price` decimal(10,2) NOT NULL,
   `image` text DEFAULT NULL,
   `stock` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -96,11 +117,12 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `product_name`, `description`, `price`, `image`, `stock`, `created_at`) VALUES
-(00000000001, 'เสื้อยืดคอกลม', 'เสื้อยืดผ้าฝ้าย 100% สวมใส่สบาย', '199.00', '1771153969_เสื้อยืด.jpg', 50, '2026-01-25 11:04:52'),
-(00000000002, 'กางเกงยีนส์', 'กางเกงยีนส์ทรงกระบอก สีฟ้าอ่อน', '799.00', '1771153960_1771153723_กางเกงยีนส์.webp', 30, '2026-01-25 11:04:52'),
-(00000000003, 'รองเท้าผ้าใบ', 'รองเท้าผ้าใบสีขาว ใส่ได้ทุกโอกาส', '1299.00', '1771153952_1771153733_รองเท้า.jpg', 20, '2026-01-25 11:04:52'),
-(00000000004, 'แมว', 'แมวสีส้ม', '2000.00', '1771145584_images.webp', 1, '2026-02-15 08:53:04');
+INSERT INTO `products` (`product_id`, `product_name`, `description`, `price`, `image`, `stock`, `category_id`, `created_at`) VALUES
+(00000000001, 'เสื้อยืดคอกลม', 'เสื้อยืดผ้าฝ้าย 100% สวมใส่สบาย', '199.00', 'เสื้อยืด.jpg', 50, 1, '2026-01-25 11:04:52'),
+(00000000002, 'กางเกงยีนส์', 'กางเกงยีนส์ทรงกระบอก สีฟ้าอ่อน', '799.00', 'กางเกงยีนส์.webp', 30, 2, '2026-01-25 11:04:52'),
+(00000000003, 'รองเท้าผ้าใบ', 'รองเท้าผ้าใบสีขาว ใส่ได้ทุกโอกาส', '1299.00', 'รองเท้า1.jpg', 20, 3, '2026-01-25 11:04:52'),
+(00000000004, 'แมว', 'แมวสีส้ม', '2000.00', 'Cat.webp', 1, 4, '2026-02-15 08:53:04'),
+(00000000005, 'หมา', 'หมาน่ารัก', '1000.00', 'Dog.jpg', 1, 1, '2026-02-22 08:24:22');
 
 -- --------------------------------------------------------
 
@@ -124,6 +146,12 @@ INSERT INTO `type` (`type_id`, `type_name`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`category_id`);
 
 --
 -- Indexes for table `customers`
@@ -154,10 +182,16 @@ ALTER TABLE `type`
 --
 
 --
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customer_id` int(8) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `customer_id` int(8) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `employees`
@@ -169,7 +203,7 @@ ALTER TABLE `employees`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `product_id` int(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `type`
